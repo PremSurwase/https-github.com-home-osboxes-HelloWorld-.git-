@@ -1,0 +1,19 @@
+name: Hello World CI
+
+# Defines the trigger event
+on: [push]
+
+jobs:
+  # Job name
+  say-hello:
+    # Specifies the runner environment (Linux)
+    runs-on: ubuntu-latest
+    
+    steps:
+      # Step 1: Checks out your code so the job can access it
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      
+      # Step 2: Runs a simple shell command
+      - name: Run Greeting
+        run: echo "Hello, world! This is my first GitHub Action."
