@@ -1,19 +1,28 @@
 name: Hello World CI
 
-# Defines the trigger event
 on: [push]
 
 jobs:
-  # Job name
+  # Job 1: Existing greeting job
   say-hello:
-    # Specifies the runner environment (Linux)
     runs-on: ubuntu-latest
-    
     steps:
-      # Step 1: Checks out your code so the job can access it
       - name: Checkout Code
         uses: actions/checkout@v4
-      
-      # Step 2: Runs a simple shell command
       - name: Run Greeting
-        run: echo "Hello, world! This is my first GitHub Action."
+        run: echo "Hello, world!"
+
+  # Job 2: New calculation job
+  calculate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add Numbers
+        run: |
+          # Define two numbers
+          NUM1=10
+          NUM2=20
+          
+          # Perform addition using shell arithmetic
+          SUM=$((NUM1 + NUM2))
+          
+          echo "The sum of $NUM1 and $NUM2 is: $SUM"
